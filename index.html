@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weihnachts-Quest</title>
     <style>
+        /* Основні стилі сторінки */
         body {
             font-family: 'Arial', sans-serif;
             background: url('weinacht.png') no-repeat center center fixed;
@@ -14,14 +15,19 @@
             padding: 0;
             text-align: center;
         }
+
+        /* Шапка */
         header {
             padding: 20px;
         }
+
         .logo {
             display: block;
             margin: 10px auto;
             max-width: 200px;
         }
+
+        /* Контейнер */
         .container {
             margin: 0 auto;
             padding: 20px;
@@ -31,9 +37,20 @@
             max-width: 600px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
+        /* Секція з загадками */
+        .questions {
+            text-align: left;
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Поле вводу коду */
         .form-group {
             margin: 15px 0;
         }
+
         input[type="text"] {
             padding: 10px;
             font-size: 16px;
@@ -42,6 +59,8 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
+        /* Кнопка */
         button {
             padding: 10px 20px;
             font-size: 16px;
@@ -51,20 +70,33 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #005500;
         }
+
+        /* Повідомлення */
         .message {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
             color: green;
         }
+
+        .message .line {
+            margin: 5px 0;
+            font-size: 22px;
+            font-weight: bold;
+            color: #d2691e; /* святковий колір */
+        }
+
         .small-text {
             margin-top: 10px;
             font-size: 12px;
             color: #555;
         }
+
+        /* Логотипи */
         .logos {
             display: flex;
             justify-content: center;
@@ -72,27 +104,49 @@
             gap: 20px;
             margin-bottom: 20px;
         }
+
         .logos img {
             max-width: 150px;
         }
     </style>
 </head>
 <body>
+    <!-- Шапка -->
     <header>
         <img src="goethe-logo.png" alt="Göthe Akademie" class="logo">
     </header>
 
+    <!-- Основний контейнер -->
     <div class="container">
+        <!-- Логотипи -->
         <div class="logos">
             <img src="dresden.png" alt="Dresden Logo">
             <img src="dormero-logo.png" alt="Dormero Hotel Logo">
         </div>
         
+        <!-- Загадки -->
+        <div class="questions">
+            <p>1. ... ist ein Erfinder im Stadtzentrum von Frankfurt.<br>
+            Er hat vier Tiere, die ihm helfen.<br>
+            Das größte Tier hat die ersten beiden Buchstaben verloren.</p>
+
+            <p>2. Geld, Wetten und der Währungskurs<br>
+            schwere Belastung<br>
+            Schau dich um, wie viele sind es (eine Ziffer).</p>
+
+            <p>3. Wache die ganze Nacht lang<br>
+            Katerina hilft<br>
+            Sie ist eine Protestantin mit einem großen Buchstaben.</p>
+        </div>
+
+        <!-- Ввід коду -->
         <p>Bitte geben Sie den richtigen Code ein, um die Quest zu lösen:</p>
         <div class="form-group">
             <input type="text" id="code-input" placeholder="Geben Sie Ihren Code ein">
             <button onclick="checkCode()">Code prüfen</button>
         </div>
+
+        <!-- Повідомлення -->
         <div id="message" class="message"></div>
     </div>
 
@@ -104,11 +158,10 @@
 
             if (correctCodes.includes(input)) {
                 messageDiv.innerHTML = `
-                    Bravo!!! Sie haben die Quest erfolgreich gelöst und die Aufgaben richtig erledigt!<br>
-                    Herzlichen Glückwunsch!!!<br>
-                    Sie haben eine Reise für zwei Personen nach Dresden mit einer Übernachtung im Vier-Sterne-Hotel Dormero gewonnen!<br>
-                    Glückwunsch zum Geburtstag!!!<br>
-                    Mit lieben Grüßen von der Göthe Akademie*<br>
+                    <div class="line">Bravo!!! Sie haben die Quest erfolgreich gelöst und die Aufgaben richtig erledigt!</div>
+                    <div class="line">Herzlichen Glückwunsch!!!</div>
+                    <div class="line">Sie haben eine Reise für zwei Personen nach Dresden mit einer Übernachtung im Vier-Sterne-Hotel Dormero gewonnen!</div>
+                    <div class="line">Glückwunsch zum Geburtstag!!!</div>
                     <p class="small-text">* in der Rolle von Göthe Akademie - ein verliebter Ehemann.</p>
                 `;
             } else {
