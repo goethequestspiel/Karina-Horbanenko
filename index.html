@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goethe Akademie - Введіть код</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d25;
+            color: white;
+            padding: 20px;
+        }
+        header img {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        main {
+            margin: 50px auto;
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 2px solid #004d25;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #004d25;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #007a3d;
+        }
+        .success {
+            color: #007a3d;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .logo {
+            margin-top: 20px;
+        }
+        .logo img {
+            max-width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo-goethe-akademie.png" alt="Goethe Akademie">
+        <h1>Перевірка вашого коду</h1>
+    </header>
+    <main>
+        <p>Введіть ваш код у поле нижче:</p>
+        <input type="text" id="codeInput" placeholder="Введіть ваш код">
+        <button onclick="checkCode()">Перевірити</button>
+        <div id="message" class="success"></div>
+        <div class="logo">
+            <img src="logo-dormero.png" alt="Dormero Hotel">
+        </div>
+    </main>
+    <script>
+        function checkCode() {
+            const input = document.getElementById('codeInput').value;
+            const message = document.getElementById('message');
+            if (input === 'el5l') {
+                message.innerHTML = 'Вітаємо! Ви виграли подорож на двох до Дрездена з ночівлею в готелі Dormero!';
+            } else {
+                message.innerHTML = 'Невірний код. Спробуйте ще раз.';
+            }
+        }
+    </script>
+</body>
+</html>
