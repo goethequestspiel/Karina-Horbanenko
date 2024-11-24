@@ -14,6 +14,9 @@
             margin: 0;
             padding: 0;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         /* Шапка */
@@ -115,6 +118,21 @@
         .logos img {
             max-width: 150px;
         }
+
+        /* Нижній колонтитул */
+        footer {
+            margin-top: auto;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            color: #555;
+            border-top: 1px solid #ccc;
+        }
+
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -144,18 +162,23 @@
             Er hat vier Tiere, die ihm helfen.<br>
             Das größte Tier hat die ersten beiden Buchstaben verloren.</p>
 
-            <p>2. Geld, Wetten und der Währungskurs.<br>
-            Schwere Belastung<br>
-            Schau dich um, wie viele sind wir?</p>
+            <p>2. Geld, Wetten und der Währungskurs<br>
+            schwere Belastung<br>
+            Schau dich um, wie viele sind es (eine Ziffer).</p>
 
-            <p>3. Wache die ganze Nacht lang.<br>
-            Katerina hilft.<br>
+            <p>3. Wache die ganze Nacht lang<br>
+            Katerina hilft<br>
             Sie ist eine Protestantin mit einem großen Buchstaben.</p>
         </div>
 
         <!-- Повідомлення -->
         <div id="message" class="message"></div>
     </div>
+
+    <!-- Нижній колонтитул -->
+    <footer>
+        <p>Göthe Akademie 2024</p>
+    </footer>
 
     <script>
         function checkCode() {
