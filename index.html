@@ -1,89 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goethe Akademie - Введіть код</title>
+    <title>Weihnachtsgewinnspiel</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
+            font-family: "Georgia", serif;
             margin: 0;
             padding: 0;
+            background-image: url('23689-Etiketten--Frohe-Weihnachten--35-mm----500-St--725-217-00-6-0-02.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
         }
         header {
-            background-color: #004d25;
-            color: white;
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         header img {
             max-width: 150px;
-            margin-bottom: 10px;
         }
-        main {
-            margin: 50px auto;
+        header h1 {
+            margin-top: 10px;
+            font-size: 28px;
+            color: #b22222;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 20px auto;
+            padding: 20px;
             max-width: 600px;
-            background: white;
-            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .content h2 {
+            color: #b22222;
+            margin-bottom: 20px;
+        }
+        .question {
+            text-align: left;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        .input-section {
+            margin-top: 20px;
         }
         input[type="text"] {
+            width: 70%;
             padding: 10px;
-            width: 80%;
-            font-size: 16px;
-            margin: 10px 0;
-            border: 2px solid #004d25;
+            margin: 10px auto;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
         button {
             padding: 10px 20px;
-            background-color: #004d25;
-            color: white;
-            font-size: 16px;
+            background-color: #006400;
+            color: #fff;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
         }
         button:hover {
-            background-color: #007a3d;
+            background-color: #228b22;
         }
-        .success {
-            color: #007a3d;
+        .result {
+            display: none;
+            margin-top: 20px;
             font-size: 18px;
-            margin-top: 20px;
+            color: #b22222;
+            text-align: left;
         }
-        .logo {
-            margin-top: 20px;
+        .result img {
+            max-width: 100%;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .logo img {
-            max-width: 200px;
+        footer {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #555;
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="logo-goethe-akademie.png" alt="Goethe Akademie">
-        <h1>Перевірка вашого коду</h1>
+        <img src="goethe-logo.png" alt="Goethe Akademie Logo">
+        <h1>Frohe Weihnachten Gewinnspiel</h1>
     </header>
-    <main>
-        <p>Введіть ваш код у поле нижче:</p>
-        <input type="text" id="codeInput" placeholder="Введіть ваш код">
-        <button onclick="checkCode()">Перевірити</button>
-        <div id="message" class="success"></div>
-        <div class="logo">
-            <img src="logo-dormero.png" alt="Dormero Hotel">
+    <div class="content">
+        <h2>Beantworte die Fragen:</h2>
+        <div class="question">
+            <p>1. ... ist ein Erfinder im Stadtzentrum von Frankfurt. <br>
+            Er hat vier Tiere, die ihm helfen.<br>
+            Das größte Tier hat die ersten beiden Buchstaben verloren.</p>
+            <p>2. Geld, Wetten und der Währungskurs<br>
+            schwere Belastung<br>
+            Schau dich um, wie viele sind es</p>
+            <p>3. Wache die ganze Nacht lang<br>
+            Katerina hilft<br>
+            Sie ist eine Protestantin mit einem großen Buchstaben</p>
         </div>
-    </main>
+        <div class="input-section">
+            <p>Gib deinen Code ein:</p>
+            <input type="text" id="codeInput" placeholder="Dein Code">
+            <button onclick="checkCode()">Überprüfen</button>
+        </div>
+        <div class="result" id="result">
+            <img src="dresden.png" alt="Dresden Bild">
+            <p>Herzlichen Glückwunsch! 🎉</p>
+            <p>Du hast eine Reise für zwei Personen nach Dresden gewonnen!</p>
+            <p>Übernachtung im Dormero Hotel ist inklusive.</p>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Goethe Akademie | Frohe Weihnachten!</p>
+    </footer>
     <script>
         function checkCode() {
-            const input = document.getElementById('codeInput').value;
-            const message = document.getElementById('message');
-            if (input === 'el5l') {
-                message.innerHTML = 'Вітаємо! Ви виграли подорож на двох до Дрездена з ночівлею в готелі Dormero!';
+            const input = document.getElementById('codeInput').value.trim();
+            const resultDiv = document.getElementById('result');
+            const validCodes = ['el5L', 'EL5L', 'el5l']; // Перевірка кількох варіантів коду
+
+            if (validCodes.includes(input)) {
+                resultDiv.style.display = 'block';
             } else {
-                message.innerHTML = 'Невірний код. Спробуйте ще раз.';
+                alert('Falscher Code! Versuch es erneut.');
             }
         }
     </script>
