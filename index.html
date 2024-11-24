@@ -8,7 +8,7 @@
         /* Основні стилі сторінки */
         body {
             font-family: 'Arial', sans-serif;
-            background: url('weinacht.png') no-repeat center center fixed;
+            background: url('ваше-різдвяне-зображення.png') no-repeat center center fixed;
             background-size: cover;
             color: #333;
             margin: 0;
@@ -38,17 +38,15 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
-        /* Секція з загадками */
-        .questions {
-            text-align: left;
-            font-size: 18px;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
         /* Поле вводу коду */
         .form-group {
             margin: 15px 0;
+        }
+
+        .form-group p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
         }
 
         input[type="text"] {
@@ -75,19 +73,28 @@
             background-color: #005500;
         }
 
+        /* Загадки */
+        .questions {
+            text-align: left;
+            font-size: 18px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+
         /* Повідомлення */
         .message {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
-            color: green;
+            color: #d2691e; /* святковий стиль */
+            text-align: center;
         }
 
         .message .line {
-            margin: 5px 0;
+            margin: 10px 0;
             font-size: 22px;
             font-weight: bold;
-            color: #d2691e; /* святковий колір */
+            color: #b22222; /* стильний червоний */
         }
 
         .small-text {
@@ -124,6 +131,13 @@
             <img src="dormero-logo.png" alt="Dormero Hotel Logo">
         </div>
         
+        <!-- Ввід коду -->
+        <div class="form-group">
+            <p>Bitte geben Sie den richtigen Code ein, um die Quest zu lösen:</p>
+            <input type="text" id="code-input" placeholder="Geben Sie Ihren Code ein">
+            <button onclick="checkCode()">Code prüfen</button>
+        </div>
+
         <!-- Загадки -->
         <div class="questions">
             <p>1. ... ist ein Erfinder im Stadtzentrum von Frankfurt.<br>
@@ -139,13 +153,6 @@
             Sie ist eine Protestantin mit einem großen Buchstaben.</p>
         </div>
 
-        <!-- Ввід коду -->
-        <p>Bitte geben Sie den richtigen Code ein, um die Quest zu lösen:</p>
-        <div class="form-group">
-            <input type="text" id="code-input" placeholder="Geben Sie Ihren Code ein">
-            <button onclick="checkCode()">Code prüfen</button>
-        </div>
-
         <!-- Повідомлення -->
         <div id="message" class="message"></div>
     </div>
@@ -158,9 +165,10 @@
 
             if (correctCodes.includes(input)) {
                 messageDiv.innerHTML = `
-                    <div class="line">Bravo!!! Sie haben die Quest erfolgreich gelöst und die Aufgaben richtig erledigt!</div>
+                    <div class="line">Bravo!!!</div>
+                    <div class="line">Sie (Karina Horbanenko) haben die Quest erfolgreich gelöst und die Aufgaben richtig erledigt!</div>
                     <div class="line">Herzlichen Glückwunsch!!!</div>
-                    <div class="line">Sie haben eine Reise für zwei Personen nach Dresden mit einer Übernachtung im Vier-Sterne-Hotel Dormero gewonnen!</div>
+                    <div class="line">Sie haben eine Reise für zwei Personen nach Dresden mit einer Übernachtung im 4 Sterne Dormero Hotel gewonnen!</div>
                     <div class="line">Glückwunsch zum Geburtstag!!!</div>
                     <p class="small-text">* in der Rolle von Göthe Akademie - ein verliebter Ehemann.</p>
                 `;
